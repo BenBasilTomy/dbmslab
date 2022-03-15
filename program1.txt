@@ -1,0 +1,34 @@
+SQL> create table student(rollno int primary key,name varchar(10),course varchar
+(10),year int);
+
+Table created.
+
+SQL> insert into student values(1,'Ben','MCA',2022);
+
+1 row created.
+
+SQL> insert into student values(2,'Biby','MCA',2022);
+
+1 row created.
+
+SQL> insert into student values(3,'Eldhose','MCA',2022);
+
+1 row created.
+
+SQL> insert into student values(4,'George','BTECH',2021);
+
+1 row created.
+
+SQL> insert into student values(5,'Vinay','BTECH',2021);
+
+1 row created.
+
+SQL> select * from student;
+
+    ROLLNO NAME       COURSE           YEAR
+---------- ---------- ---------- ----------
+         1 Ben        MCA              2022
+         2 Biby       MCA              2022
+         3 Eldhose    MCA              2022
+         4 George     BTECH            2021
+         5 Vinay      BTECH            2021
