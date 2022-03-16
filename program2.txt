@@ -1,0 +1,85 @@
+
+SQL> create table department(dept_id int primary key,dept_name varchar (10),hod varchar(10));
+
+Table created.
+
+SQL> create table employee(empid int primary key,name varchar(10),department int);
+
+Table created.
+
+SQL> alter table employee add foreign key (department) references department(dept_id);
+
+Table altered.
+
+SQL> insert into department values(001,'MECH','Eldhose');
+
+1 row created.
+
+SQL> insert into department values(002,'EEE','Hashir');
+
+1 row created.
+
+SQL> insert into department values(003,'ECE','Fazil');
+
+1 row created.
+
+SQL> select * from department;
+
+   DEPT_ID DEPT_NAME  HOD
+---------- ---------- ----------
+         1           MECH       Eldhose
+         2           EEE            Hashir
+         3           ECE            Fazil
+
+
+SQL> insert into employee values(101,'Ben',1);
+
+1 row created.
+
+SQL> insert into employee values(102,'Basil',2);
+
+1 row created.
+
+SQL> insert into employee values(103,'Hashir',3);
+
+1 row created.
+
+SQL> insert into employee values(104,'Athul',2);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPID NAME       DEPARTMENT
+---------- ---------- ----------
+       101 Ben                 1
+       102 Basil               2
+       103 Hashir            3
+       104 Athul              2
+
+
+SQL> update employee set name = 'Aswanth' where empid = 101;
+
+1 row updated.
+
+SQL> select * from employee;
+
+     EMPID NAME       DEPARTMENT
+---------- ---------- ----------
+       101    Aswanth            1
+       102    Basil                    2
+       103    Hashir                 3
+       104    Athul                   2
+
+
+SQL> delete from employee where empid=102;
+
+1 row deleted.
+
+SQL> select * from employee;
+
+     EMPID NAME       DEPARTMENT
+---------- ---------- ----------
+       101 Aswanth           1
+       103 Hashir                3
+       104 Athul                  2
