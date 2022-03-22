@@ -1,0 +1,112 @@
+SQL> create table employee1(empid int,name varchar(10),dept int,salary int);
+
+Table created.
+
+SQL> create table department1(deptid int,deptname varchar(10),hod varchar(10));
+
+Table created.
+
+SQL> insert into employee1 values(101,'Ben',1,45000);
+
+1 row created.
+
+SQL> insert into employee1 values(102,'Amal',2,45000);
+
+1 row created.
+
+SQL> insert into employee1 values(103,'Ashil',2,35000);
+
+1 row created.
+
+SQL> insert into employee1 values(104,'Biby',3,55000);
+
+1 row created.
+
+SQL> insert into employee1 values(105,'Irene',4,55000);
+
+1 row created.
+
+SQL> insert into department1 values(1,'MCA','Athul');
+
+1 row created.
+
+SQL> insert into department1 values(2,'MTECH','Aswanth');
+
+1 row created.
+
+SQL> insert into department1 values(3,'MBA','Benoi');
+
+1 row created.
+
+SQL> insert into department1 values(4,'BCA','Nandhu');
+
+1 row created.
+
+SQL> insert into department1 values(5,'BCOM','Eldhose');
+
+1 row created.
+
+SQL> alter table employee1 add primary key(empid);
+
+Table altered.
+
+SQL> alter table department1 add primary key(deptid);
+
+Table altered.
+
+SQL> alter table employee1 add foreign key(dept) references department1(deptid);
+
+Table altered.
+
+SQL> select * from employee1;
+
+     EMPID NAME             DEPT     SALARY
+---------- ---------- ---------- ----------
+       101 Ben                 1      45000
+       102 Amal                2      45000
+       103 Ashil               2      35000
+       104 Biby                3      55000
+       105 Irene               4      55000
+
+SQL> select * from department1;
+
+    DEPTID DEPTNAME   HOD
+---------- ---------- ----------
+         1 MCA        Athul
+         2 MTECH      Aswanth
+         3 MBA        Benoi
+         4 BCA        Nandhu
+         5 BCOM       Eldhose
+
+SQL> update employee1 set name='Basil' where empid='101';
+
+1 row updated.
+
+SQL> delete from department1 where deptid='5';
+
+1 row deleted.
+
+SQL> select * from employee1;
+
+     EMPID NAME             DEPT     SALARY
+---------- ---------- ---------- ----------
+       101 Basil               1      45000
+       102 Amal                2      45000
+       103 Ashil               2      35000
+       104 Biby                3      55000
+       105 Irene               4      55000
+
+SQL> select * from department1;
+
+    DEPTID DEPTNAME   HOD
+---------- ---------- ----------
+         1 MCA        Athul
+         2 MTECH      Aswanth
+         3 MBA        Benoi
+         4 BCA        Nandhu
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
