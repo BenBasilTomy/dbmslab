@@ -1,0 +1,81 @@
+SQL> create table books(bkid int primary key,bkname varchar(10),author varchar(5
+));
+
+Table created.
+
+SQL> insert into books values(101,'Linux','ben');
+
+1 row created.
+
+SQL> insert into books values(102,'PHP','biby');
+
+1 row created.
+
+SQL> insert into books values(103,'JAVA','benoi');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into books values(104,'CPP','Alen');
+
+1 row created.
+
+SQL> insert into books values(105,'C','Fazil');
+
+1 row created.
+
+SQL> savepoint first;
+
+Savepoint created.
+
+SQL> insert into books values(106,'PYTHON','Glen');
+
+1 row created.
+
+SQL> savepoint second;
+
+Savepoint created.
+
+SQL> select * from books;
+
+      BKID BKNAME     AUTHO
+---------- ---------- -----
+       101 Linux      ben
+       102 PHP        biby
+       103 JAVA       benoi
+       104 CPP        Alen
+       105 C          Fazil
+       106 PYTHON     Glen
+
+6 rows selected.
+
+SQL> rollback to first;
+
+Rollback complete.
+
+SQL> select * from books;
+
+      BKID BKNAME     AUTHO
+---------- ---------- -----
+       101 Linux      ben
+       102 PHP        biby
+       103 JAVA       benoi
+       104 CPP        Alen
+       105 C          Fazil
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from books;
+
+      BKID BKNAME     AUTHO
+---------- ---------- -----
+       101 Linux      ben
+       102 PHP        biby
+       103 JAVA       benoi
+
+SQL>
