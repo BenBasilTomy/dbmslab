@@ -1,0 +1,83 @@
+SQL> connect system;
+Enter password:
+Connected.
+SQL> create user ben identified by 123;
+
+User created.
+
+
+
+
+
+
+SQL> connect;
+Enter user-name: system
+Enter password:
+Connected.
+
+
+
+SQL> grant create session to ben;
+
+Grant succeeded.
+
+SQL> connect;
+Enter user-name: ben
+Enter password:
+Connected.
+
+
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+SQL> select * from books;
+
+      BKID BKNAME     AUTHO
+---------- ---------- -----
+       101 Linux      ben
+       102 PHP        biby
+       103 JAVA       benoi
+
+SQL> grant insert,select on books to ben;
+
+Grant succeeded.
+
+SQL> connect
+Enter user-name: ben
+Enter password:
+Connected.
+SQL> select * from system.books;
+
+      BKID BKNAME     AUTHO
+---------- ---------- -----
+       101 Linux      ben
+       102 PHP        biby
+       103 JAVA       benoi
+
+
+
+SQL> insert into system.books values(104,'html','ken');
+
+1 row created.
+
+SQL> connect system
+Enter password:
+Connected.
+SQL> revoke select on books from ben;
+
+Revoke succeeded.
+
+SQL> connect
+Enter user-name: ben
+Enter password:
+Connected.
+SQL> select * from system.books;
+select * from system.books
+                     *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL>
