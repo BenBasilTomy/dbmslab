@@ -1,0 +1,94 @@
+
+SQL> create table customer(id int,name varchar(10),age int,home_town varchar(10)
+,salary int);
+
+Table created.
+     
+SQL> insert into customer values(1,'Ramesh',32,'Ahmedabad',2000);
+
+1 row created.
+
+SQL> insert into customer values(2,'Khilan',25,'Delhi',1500);
+
+1 row created.
+
+SQL> insert into customer values(3,'Kaushik',23,'Kota',2000);
+
+1 row created.
+
+SQL> insert into customer values(4,'Chaitali',25,'Mumbai',6500);
+
+1 row created.
+
+SQL> insert into customer values(5,'Hardik',27,'Bhopal',8500);
+
+1 row created.
+
+SQL> insert into customer values(6,'Komal',22,'MP',4500);
+
+1 row created.
+
+SQL> insert into customer values(7,'Muffy',24,'Indore',10000);
+
+1 row created.
+
+SQL> insert into customer values(8,'Ramu',23,'Delhi',6000);
+
+1 row created.
+
+SQL> insert into customer values(9,'Rohit',24,'Ahmedabad',5000);
+
+1 row created.
+
+SQL> insert into customer values(10,'Shamil',23,'Mumbai',10000);
+
+1 row created.
+
+SQL> update customer set id=4 where name='Chaitali';
+
+1 row updated.
+
+SQL> select * from customer;
+
+        ID NAME              AGE HOME_TOWN      SALARY
+---------- ---------- ---------- ---------- ----------
+         1 Ramesh             32 Ahmedabad        2000
+         2 Khilan             25 Delhi            1500
+         3 Kaushik            23 Kota             2000
+         4 Chaitali           25 Mumbai           6500
+         5 Hardik             27 Bhopal           8500
+         6 Komal              22 MP               4500
+         7 Muffy              24 Indore          10000
+         8 Ramu               23 Delhi            6000
+         9 Rohit              24 Ahmedabad        5000
+        10 Shamil             23 Mumbai          10000
+
+10 rows selected.
+
+SQL> select * from customer where id=4;
+
+        ID NAME              AGE HOME_TOWN      SALARY
+---------- ---------- ---------- ---------- ----------
+         4 Chaitali           25 Mumbai           6500
+
+SQL> select distinct(home_town) from customer;
+
+HOME_TOWN
+----------
+Bhopal
+Ahmedabad
+Delhi
+Kota
+Mumbai
+MP
+Indore
+
+7 rows selected.
+
+SQL> select count(salary) from customer;
+
+COUNT(SALARY)
+-------------
+           10
+
+SQL>
