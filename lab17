@@ -1,0 +1,137 @@
+> use Employee
+switched to db Employee
+
+> db.empl.find()
+> db.empl.find().pretty()
+> use employee
+switched to db employee
+> db.empl.find().pretty()
+> db.EMPL.insert({no:"1",name:"ST",salary:"2000",role:"OB"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"2",name:"MSD",salary:"1500",role:"WK"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"3",name:"YS",salary:"1000",role:"ALR"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"4",name:"RD",salary:"1000",role:"MOB"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"4",name:"RS",salary:"500",role:"OB"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"5",name:"BK",salary:"500",role:"MOB"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"5",name:"VK",salary:"300",role:"BW"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"8",name:"JB",salary:"400",role:"BW"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"9",name:"HP",salary:"400",role:"ALR"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({no:"10",name:"VS",salary:"300",role:"OB"})
+WriteResult({ "nInserted" : 1 })
+>
+
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833f73657c31fe534f4603"),
+        "empno" : 1,
+        "name" : "Raju",
+        "salary" : 20000,
+        "role" : "Designing"
+}
+{
+        "_id" : ObjectId("62833fce657c31fe534f4604"),
+        "empno" : 2,
+        "name" : "Shyam",
+        "salary" : 25000,
+        "role" : "Testing"
+}
+{
+        "_id" : ObjectId("62833ff7657c31fe534f4605"),
+        "empno" : 3,
+        "name" : "Anu",
+        "salary" : 28000,
+        "role" : "Designing"
+}
+{
+        "_id" : ObjectId("6283401e657c31fe534f4606"),
+        "empno" : 4,
+        "name" : "Benoi",
+        "salary" : 800000,
+        "role" : "coder"
+}
+{
+        "_id" : ObjectId("6283403a657c31fe534f4607"),
+        "empno" : 5,
+        "name" : "Aswanth",
+        "salary" : 8000,
+        "role" : "scout"
+}
+{
+        "_id" : ObjectId("628c76b4ea757e0af879c9df"),
+        "no" : "1",
+        "name" : "ST",
+        "salary" : "2000",
+        "role" : "OB"
+}
+{
+        "_id" : ObjectId("628c76f3ea757e0af879c9e0"),
+        "no" : "2",
+        "name" : "MSD",
+        "salary" : "1500",
+        "role" : "WK"
+}
+{
+        "_id" : ObjectId("628c7712ea757e0af879c9e1"),
+        "no" : "3",
+        "name" : "YS",
+        "salary" : "1000",
+        "role" : "ALR"
+}
+{
+        "_id" : ObjectId("628c772dea757e0af879c9e2"),
+        "no" : "4",
+        "name" : "RD",
+        "salary" : "1000",
+        "role" : "MOB"
+}
+{
+        "_id" : ObjectId("628c7749ea757e0af879c9e3"),
+        "no" : "4",
+        "name" : "RS",
+        "salary" : "500",
+        "role" : "OB"
+}
+{
+        "_id" : ObjectId("628c7761ea757e0af879c9e4"),
+        "no" : "5",
+        "name" : "BK",
+        "salary" : "500",
+        "role" : "MOB"
+}
+{
+        "_id" : ObjectId("628c777bea757e0af879c9e5"),
+        "no" : "5",
+        "name" : "VK",
+        "salary" : "300",
+        "role" : "BW"
+}
+{
+        "_id" : ObjectId("628c77bdea757e0af879c9e6"),
+        "no" : "8",
+        "name" : "JB",
+        "salary" : "400",
+        "role" : "BW"
+}
+{
+        "_id" : ObjectId("628c77d9ea757e0af879c9e7"),
+        "no" : "9",
+        "name" : "HP",
+        "salary" : "400",
+        "role" : "ALR"
+}
+{
+        "_id" : ObjectId("628c77fbea757e0af879c9e8"),
+        "no" : "10",
+        "name" : "VS",
+        "salary" : "300",
+        "role" : "OB"
+}
+>
