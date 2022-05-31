@@ -1,0 +1,102 @@
+SQL> create table emps(id int,name varchar(10),age int,address varchar(20),salary int);
+
+Table created.
+
+SQL> insert into emps values(1,'Ramesh',23,'Alahabad',20000)
+  2  ;
+
+1 row created.
+
+SQL> insert into emps values(2,'Suresh',24,'Kanpur',22000);
+
+1 row created.
+
+SQL> insert into emps values(3,'Mahesh',24,'Ghaziabad',24000);
+
+1 row created.
+
+SQL> insert into emps values(4,'Chandan',25,'Noida',26000);
+
+1 row created.
+
+SQL> insert into emps values(5,'Alex',21,'Paris',28000);
+
+1 row created.
+
+SQL> insert into emps values(6,'Sunita',20,'Delhi',30000);
+
+1 row created.
+
+SQL> select * from emps;
+
+        ID NAME              AGE ADDRESS                  SALARY
+---------- ---------- ---------- -------------------- ----------
+         1 Ramesh             23 Alahabad                  20000
+         2 Suresh             24 Kanpur                    22000
+         3 Mahesh             24 Ghaziabad                 24000
+         4 Chandan            25 Noida                     26000
+         5 Alex               21 Paris                     28000
+         6 Sunita             20 Delhi                     30000
+
+6 rows selected.
+
+SQL> CREATE OR REPLACE TRIGGER display_salary_changes
+  2  BEFORE DELETE OR INSERT OR UPDATE ON emps
+  3  FOR EACH ROW
+  4
+  5  WHEN (NEW.ID > 0)
+  6
+  7  DECLARE
+  8
+  9  sal_diff number;
+ 10
+ 11  BEGIN
+ 12
+ 13  sal_diff := :NEW.salary - :OLD.salary;
+ 14
+ 15  dbms_output.put_line('Old salary: ' || :OLD.salary);
+ 16
+ 17  dbms_output.put_line('New salary: ' || :NEW.salary);
+ 18
+ 19  dbms_output.put_line('Salary difference: ' || sal_diff);
+ 20
+ 21  END;
+ 22  /
+
+Trigger created.
+
+SQL> set serverout on
+SQL> DECLARE
+  2  total_rows number(2);
+  3  BEGIN
+  4  UPDATE emps
+  5  SET salary = salary + 5000;
+  6  IF sql%notfound THEN
+  7  dbms_output.put_line('no customers updated');
+  8  ELSIF sql%found THEN
+  9  total_rows := sql%rowcount;
+ 10  dbms_output.put_line( total_rows || ' customers updated ');
+ 11  END IF;
+ 12  END;
+ 13  /
+Old salary: 25000
+New salary: 30000
+Salary difference: 5000
+Old salary: 27000
+New salary: 32000
+Salary difference: 5000
+Old salary: 29000
+New salary: 34000
+Salary difference: 5000
+Old salary: 31000
+New salary: 36000
+Salary difference: 5000
+Old salary: 33000
+New salary: 38000
+Salary difference: 5000
+Old salary: 35000
+New salary: 40000
+Salary difference: 5000
+6 customers updated
+
+PL/SQL procedure successfully completed.
